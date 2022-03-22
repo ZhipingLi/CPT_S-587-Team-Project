@@ -28,7 +28,7 @@
 
             var quitGameButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(300, 350),
+                Position = new Vector2(300, 300),
                 Text = "Quit",
             };
 
@@ -37,7 +37,7 @@
             var newGameEasyButton = new Button(buttonTexture, buttonFont)
             {
                 Position = new Vector2(300, 250),
-                Text = "Slow Speed",
+                Text = "Start Game",
             };
 
             newGameEasyButton.Click += this.NewGameEasyButton_Click;
@@ -53,7 +53,6 @@
             this.components = new List<Component>()
             {
                 newGameEasyButton,
-                newGameNormalButton,
                 quitGameButton,
             };
         }
@@ -98,7 +97,7 @@
 
         private void NewGameButton_Click(object sender, EventArgs e)
         {
-            StateManager.ChangeState(new DifficultyState());
+            StateManager.ChangeState(new GameState());
         }
 
         private void NewGameNormalButton_Click(object sender, EventArgs e)
