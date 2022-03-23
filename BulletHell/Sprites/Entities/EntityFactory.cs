@@ -48,9 +48,6 @@
 
                     switch (enemyType)
                     {
-                        case "exampleEnemy":
-                            entity = new ExampleEnemy(texture, color, movement, projectile, lifeSpan);
-                            break;
                         case "simpleGrunt":
                             entity = new SimpleGrunt(texture, color, movement, projectile, lifeSpan);
                             break;
