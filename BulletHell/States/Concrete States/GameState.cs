@@ -22,7 +22,7 @@
         private List<Wave> waves;
         private double timeUntilNextWave = 0;
         private SpriteFont font;
-        private int lives = 100;
+        private int lives = 10;
         private bool finalBossDefeated = false;
         private List<ICommand> commandQueue = null;
 

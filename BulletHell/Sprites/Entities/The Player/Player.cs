@@ -49,7 +49,7 @@
 
             this.SetInvincibility(gameTime);
 
-            /*this.Attack(enemies);*/
+            this.Attack(enemies);
 
             int previousSpeed = this.Movement.CurrentSpeed;
 
