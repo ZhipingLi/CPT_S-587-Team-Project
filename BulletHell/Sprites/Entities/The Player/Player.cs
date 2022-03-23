@@ -102,7 +102,8 @@
         {
             if (this.spawning == true)
             {
-                if ((gameTime.TotalGameTime.TotalSeconds - this.initialSpawnTime) >= 1000)
+                // palyer health is 10
+                if ((gameTime.TotalGameTime.TotalSeconds - this.initialSpawnTime) >= 10) 
                 {
                     this.Invincible = false;
                     this.spawning = false;

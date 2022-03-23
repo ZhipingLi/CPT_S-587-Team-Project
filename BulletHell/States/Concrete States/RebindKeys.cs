@@ -71,11 +71,11 @@
 
             returnButton.Click += this.ReturnButton_Click;
 
-            /*this.attackButton = new Button(buttonTexture, buttonFont)
+            this.attackButton = new Button(buttonTexture, buttonFont)
             {
                 Position = new Vector2(500, 200),
                 Text = "Attack | " + Input.Attack.ToString(),
-            };*/
+            };
 
             this.attackButton.Click += this.AttackButton_Click;
 
