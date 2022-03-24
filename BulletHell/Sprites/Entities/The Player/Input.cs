@@ -37,9 +37,9 @@
                 case "Right":
                     Right = newKey;
                     break;
-                /*case "Attack":
+                case "Attack":
                     Attack = newKey;
-                    break;*/
+                    break;
                 default:
                     return;
             }
@@ -47,7 +47,7 @@
 
         public static bool CheckIfAlreadyBinded(Keys key)
         {
-            if (Up == key || Down == key || Left == key || Right == key /*|| Attack == key*/)
+            if (Up == key || Down == key || Left == key || Right == key || Attack == key)
             {
                 return true;
             }

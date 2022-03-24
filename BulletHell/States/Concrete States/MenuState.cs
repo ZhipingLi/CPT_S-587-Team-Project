@@ -36,11 +36,18 @@
 
             var newGameEasyButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(300, 250),
+                Position = new Vector2(300, 200),
                 Text = "Start Game",
             };
 
             newGameEasyButton.Click += this.NewGameEasyButton_Click;
+            
+            var optionsButton = new Button(buttonTexture, buttonFont)
+            {
+                Position = new Vector2(300, 250),
+                Text = "Options",
+            };
+            optionsButton.Click += this.OptionsButton_Click;
 
             var newGameNormalButton = new Button(buttonTexture, buttonFont)
             {
@@ -53,6 +60,7 @@
             this.components = new List<Component>()
             {
                 newGameEasyButton,
+                optionsButton,
                 quitGameButton,
             };
         }
@@ -112,6 +120,11 @@
             GameLoader.LoadGameDictionary("demo");
 
             StateManager.ChangeState(new GameState());
+        }
+
+        private void OptionsButton_Click(object sender, EventArgs e)
+        {
+            StateManager.ChangeState(new Options());
         }
 
         private void QuitGameButton_Click(object sender, EventArgs e)
