@@ -122,6 +122,7 @@
         {
             if (this.currentKey.IsKeyDown(Keys.Space) && this.previousKey.IsKeyUp(Keys.Space))
             {
+                sprites.ForEach((e) => { e.isFromPlayer = true; });
                 base.Attack(sprites);
             }
         }

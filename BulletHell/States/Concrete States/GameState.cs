@@ -114,11 +114,17 @@
             // Create enemy update commands
             this.enemies.ForEach((e) => { this.commandQueue.Add(new UpdateCommand(e, gameTime, this.projectiles)); }); // projectiles used here as container where Attack() adds sprites
 
+            List<Projectile> projectilesFromEnemies = new List<Projectile>();
+
             // Create projectile update commands
-            this.projectiles.ForEach((p) => { this.commandQueue.Add(new UpdateCommand(p, gameTime, this.projectiles)); }); // Note: Projectile's Update does nothing with sprite list
+            this.projectiles.ForEach((p) =>
+            {
+                this.commandQueue.Add(new UpdateCommand(p, gameTime, this.projectiles));
+                if (!p.isFromPlayer) { projectilesFromEnemies.Add((Projectile)p); }
+            }); // Note: Projectile's Update does nothing with sprite list
 
             // Create player collision check command, using both enemies and projectiles to check against
-            this.commandQueue.Add(new CollisionCheckCommand(this.player, this.enemies.Concat(this.projectiles).ToList())); // Did player hit any enemies or projectiles
+            this.commandQueue.Add(new CollisionCheckCommand(this.player, this.enemies.Concat(projectilesFromEnemies).ToList())); // Did player hit any enemies or enemies' projectiles
 
             // Create enemy collision checks (purpose is to see if player projectiles hit any)
             this.enemies.ForEach((e) => { this.commandQueue.Add(new CollisionCheckCommand(e, this.projectiles)); }); // Did player projectiles hit any enemies

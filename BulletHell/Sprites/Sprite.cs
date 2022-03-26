@@ -7,6 +7,7 @@
 
     internal abstract class Sprite
     {
+        public bool isFromPlayer = false;
         private readonly Color[] textureData;
         private bool isRemoved = false;
         private Color color = Color.White;
