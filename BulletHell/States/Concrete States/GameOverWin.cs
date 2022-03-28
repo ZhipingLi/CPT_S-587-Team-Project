@@ -10,22 +10,14 @@
     public class GameOverWin : State
     {
         private List<Component> components;
-        private Texture2D youWinTexture;
+        private Texture2D playerWinTexture;
 
         public GameOverWin()
           : base()
         {
             var buttonTexture = TextureFactory.GetTexture("Controls/Button");
             var buttonFont = TextureFactory.GetSpriteFont("Fonts/Font");
-            this.youWinTexture = TextureFactory.GetTexture("Titles/YouWinWhite");
-
-            var newGameButton = new Button(buttonTexture, buttonFont)
-            {
-                Position = new Vector2(300, 200),
-                Text = "Play Again",
-            };
-
-            newGameButton.Click += this.NewGameButton_Click;
+            this.playerWinTexture = TextureFactory.GetTexture("Titles/YouWinWhite");
 
             var returnButton = new Button(buttonTexture, buttonFont)
             {
@@ -45,7 +37,6 @@
 
             this.components = new List<Component>()
             {
-                newGameButton,
                 returnButton,
                 exitGameButton,
             };
@@ -58,7 +49,7 @@
             GraphicManagers.GraphicsDevice.Clear(Color.LightSeaGreen);
 
             spriteBatch.Begin();
-            spriteBatch.Draw(this.youWinTexture, new Vector2(190, 50), Color.Gold);
+            spriteBatch.Draw(this.playerWinTexture, new Vector2(190, 50), Color.Gold);
 
             foreach (var component in this.components)
             {
@@ -87,11 +78,6 @@
 
         public override void Draw(GameTime gameTime)
         {
-        }
-
-        private void NewGameButton_Click(object sender, EventArgs e)
-        {
-            StateManager.ChangeState(new DifficultyState());
         }
 
         private void ReturnButton_Click(object sender, EventArgs e)

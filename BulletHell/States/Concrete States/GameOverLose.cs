@@ -19,14 +19,6 @@
             var buttonFont = TextureFactory.GetSpriteFont("Fonts/Font");
             this.gameOverTexture = TextureFactory.GetTexture("Titles/GameOver");
 
-            var newGameButton = new Button(buttonTexture, buttonFont)
-            {
-                Position = new Vector2(300, 200),
-                Text = "Play Again",
-            };
-
-            newGameButton.Click += this.NewGameButton_Click;
-
             var returnButton = new Button(buttonTexture, buttonFont)
             {
                 Position = new Vector2(300, 250),
@@ -45,7 +37,6 @@
 
             this.components = new List<Component>()
             {
-                newGameButton,
                 returnButton,
                 exitGameButton,
             };
@@ -88,12 +79,6 @@
         public override void Draw(GameTime gameTime)
         {
         }
-
-        private void NewGameButton_Click(object sender, EventArgs e)
-        {
-            StateManager.ChangeState(new DifficultyState());
-        }
-
         private void ReturnButton_Click(object sender, EventArgs e)
         {
             StateManager.ChangeState(new MenuState());

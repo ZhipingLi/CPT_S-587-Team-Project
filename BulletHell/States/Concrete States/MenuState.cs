@@ -18,14 +18,6 @@
             var buttonTexture = TextureFactory.GetTexture("Controls/Button");
             var buttonFont = TextureFactory.GetSpriteFont("Fonts/Font");
 
-            var newGameButton = new Button(buttonTexture, buttonFont)
-            {
-                Position = new Vector2(300, 200),
-                Text = "New Game",
-            };
-
-            newGameButton.Click += this.NewGameButton_Click;
-
             var quitGameButton = new Button(buttonTexture, buttonFont)
             {
                 Position = new Vector2(300, 300),
@@ -101,11 +93,6 @@
 
         public override void Draw(GameTime gameTime)
         {
-        }
-
-        private void NewGameButton_Click(object sender, EventArgs e)
-        {
-            StateManager.ChangeState(new GameState());
         }
 
         private void NewGameNormalButton_Click(object sender, EventArgs e)
