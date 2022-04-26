@@ -57,7 +57,7 @@
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            GraphicManagers.GraphicsDevice.Clear(Color.Blue);
+            GraphicManagers.GraphicsDevice.Clear(Color.DarkGray);
 
             spriteBatch.Begin();
             spriteBatch.Draw(this.selectDifficultyTexture, new Vector2(40, 50), Color.White);

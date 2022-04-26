@@ -20,41 +20,33 @@
             var buttonFont = TextureFactory.GetSpriteFont("Fonts/Font");
             this.mainMenuTexture = TextureFactory.GetTexture("Titles/whiteMainMenu");
 
+            var newGameButton = new Button(buttonTexture, buttonFont)
+            {
+                Position = new Vector2(300, 200),
+                Text = "New Game",
+            };
+
+            newGameButton.Click += this.NewGameButton_Click;
+
+            var optionsButton = new Button(buttonTexture, buttonFont)
+            {
+                Position = new Vector2(300, 250),
+                Text = "Options",
+            };
+
+            optionsButton.Click += this.OptionsButton_Click;
+
             var quitGameButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(300, 350),
+                Position = new Vector2(300, 300),
                 Text = "Quit",
             };
 
             quitGameButton.Click += this.QuitGameButton_Click;
 
-            var newGameEasyButton = new Button(buttonTexture, buttonFont)
-            {
-                Position = new Vector2(300, 200),
-                Text = "Easy Speed",
-            };
-
-            newGameEasyButton.Click += this.NewGameEasyButton_Click;
-            
-            var optionsButton = new Button(buttonTexture, buttonFont)
-            {
-                Position = new Vector2(300, 300),
-                Text = "Options",
-            };
-            optionsButton.Click += this.OptionsButton_Click;
-
-            var newGameNormalButton = new Button(buttonTexture, buttonFont)
-            {
-                Position = new Vector2(300, 250),
-                Text = "Normal Speed",
-            };
-
-            newGameNormalButton.Click += this.NewGameNormalButton_Click;
-
             this.components = new List<Component>()
             {
-                newGameEasyButton,
-                newGameNormalButton,
+                newGameButton,
                 optionsButton,
                 quitGameButton,
             };
@@ -99,23 +91,14 @@
         {
         }
 
-        private void NewGameNormalButton_Click(object sender, EventArgs e)
-        {
-            GameLoader.LoadGameDictionary("demo");
-
-            StateManager.ChangeState(new GameState());
-        }
-
-        private void NewGameEasyButton_Click(object sender, EventArgs e)
-        {
-            GameLoader.LoadGameDictionary("demo");
-
-            StateManager.ChangeState(new GameState());
-        }
-
         private void OptionsButton_Click(object sender, EventArgs e)
         {
             StateManager.ChangeState(new Options());
+        }
+
+        private void NewGameButton_Click(object sender, EventArgs e)
+        {
+            StateManager.ChangeState(new DifficultyState());
         }
 
         private void QuitGameButton_Click(object sender, EventArgs e)
