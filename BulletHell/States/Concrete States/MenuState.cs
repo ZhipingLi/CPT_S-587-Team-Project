@@ -11,16 +11,18 @@
     public class MenuState : State
     {
         private List<Component> components;
+        private Texture2D mainMenuTexture;
 
         public MenuState()
           : base()
         {
             var buttonTexture = TextureFactory.GetTexture("Controls/Button");
             var buttonFont = TextureFactory.GetSpriteFont("Fonts/Font");
+            this.mainMenuTexture = TextureFactory.GetTexture("Titles/whiteMainMenu");
 
             var quitGameButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(300, 300),
+                Position = new Vector2(300, 350),
                 Text = "Quit",
             };
 
@@ -29,21 +31,21 @@
             var newGameEasyButton = new Button(buttonTexture, buttonFont)
             {
                 Position = new Vector2(300, 200),
-                Text = "Start Game",
+                Text = "Easy Speed",
             };
 
             newGameEasyButton.Click += this.NewGameEasyButton_Click;
             
             var optionsButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(300, 250),
+                Position = new Vector2(300, 300),
                 Text = "Options",
             };
             optionsButton.Click += this.OptionsButton_Click;
 
             var newGameNormalButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(300, 300),
+                Position = new Vector2(300, 250),
                 Text = "Normal Speed",
             };
 
@@ -52,6 +54,7 @@
             this.components = new List<Component>()
             {
                 newGameEasyButton,
+                newGameNormalButton,
                 optionsButton,
                 quitGameButton,
             };
@@ -61,9 +64,10 @@
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            GraphicManagers.GraphicsDevice.Clear(Color.Blue);
+            GraphicManagers.GraphicsDevice.Clear(Color.DarkBlue);
 
             spriteBatch.Begin();
+            spriteBatch.Draw(this.mainMenuTexture, new Vector2(150, 50), Color.White);
 
             foreach (var component in this.components)
             {
