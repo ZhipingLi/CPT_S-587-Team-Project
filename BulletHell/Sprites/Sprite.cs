@@ -11,6 +11,7 @@
         private readonly Color[] textureData;
         private bool isRemoved = false;
         private Color color = Color.White;
+        private int healingLive;
 
         public Sprite(Texture2D texture, Color color, MovementPattern movement)
         {
@@ -35,6 +36,11 @@
         {
             get => this.isRemoved;
             set => this.isRemoved = value;
+        }
+        public int HealingLive
+        {
+            get => this.healingLive;
+            set => this.healingLive = value;
         }
 
         // Serves as hitbox

@@ -25,17 +25,22 @@
 
             int damage = (int)projectileProperties["damage"];
 
+            int healing = (int)projectileProperties["healing"];
+
             switch (projectileProperties["projectileType"])
             {
                 case "bullet":
-                    projectile = new Bullet(texture, color, movement, damage);
+                    projectile = new Bullet(texture, color, movement, damage, healing);
                     break;
                 case "bouncingBullet":
-                    projectile = new BouncingBullet(texture, color, movement, damage);
+                    projectile = new BouncingBullet(texture, color, movement, damage, healing);
                     break;
                 case "bounceBullet":
                     int numberOfTimesToBounce = (int)projectileProperties["bounceTimes"];
-                    projectile = new BounceBullet(texture, color, movement, numberOfTimesToBounce, damage);
+                    projectile = new BounceBullet(texture, color, movement, numberOfTimesToBounce, damage, healing);
+                    break;
+                case "lifePiece":
+                    projectile = new LifePiece(texture, color, movement, damage, healing);
                     break;
                 default:
                     throw new Exception("Invalid Projectile Type");

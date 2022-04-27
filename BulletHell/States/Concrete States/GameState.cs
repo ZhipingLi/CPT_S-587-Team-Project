@@ -138,7 +138,11 @@
                 this.commandQueue.Clear();
             }
         }
-
+        private void addLife()
+        {
+            
+            this.lives++;
+        }
         private void RemoveSprites(GameTime gameTime)
         {
             if (this.player.IsRemoved)

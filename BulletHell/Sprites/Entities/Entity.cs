@@ -36,5 +36,20 @@
             newProjectile.Parent = this;
             sprites.Add(newProjectile);
         }
+        protected void Heal(List<Sprite> sprites)
+        {
+            Projectile newProjectile = this.Projectile.Clone() as Projectile;
+            int projectileSpeed = newProjectile.Movement.Speed;
+            newProjectile.Movement = this.Projectile.Movement.Clone() as MovementPattern;
+            newProjectile.Movement.Parent = newProjectile;
+            Vector2 velocity = newProjectile.Movement.Velocity;
+            velocity.Normalize();
+            velocity.X *= projectileSpeed;
+            velocity.Y *= projectileSpeed;
+            newProjectile.Movement.Velocity = velocity;
+            newProjectile.Movement.Position = new Vector2(this.Rectangle.Center.X, this.Rectangle.Center.Y);
+            newProjectile.Parent = this;
+            sprites.Add(newProjectile);
+        }
     }
 }

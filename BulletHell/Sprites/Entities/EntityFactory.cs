@@ -60,6 +60,9 @@
                         case "finalBoss":
                             entity = new FinalBoss(texture, color, movement, projectile, lifeSpan);
                             break;
+                        case "lifePiecer":
+                            entity = new LifePiecer(texture, color, movement, projectile, lifeSpan);
+                            break;
                     }
 
                     break;

@@ -10,16 +10,17 @@
 
     internal abstract class Projectile : Sprite, ICloneable
     {
-        public Projectile(Texture2D texture, Color color, MovementPattern movement, int damage)
+        public Projectile(Texture2D texture, Color color, MovementPattern movement, int damage, int healing)
             : base(texture, color, movement)
         {
             this.Damage = damage;
+            this.Healing = healing;
         }
 
         public Sprite Parent { get; set; }
 
         public int Damage { get; set; }
-
+        public int Healing { get; set; }
         // Serves as hitbox (extended lengthwise to account for bullet speed vs framerate)
         public override Rectangle Rectangle
         {

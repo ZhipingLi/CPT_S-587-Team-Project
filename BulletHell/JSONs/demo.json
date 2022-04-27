@@ -16,6 +16,7 @@
       "textureName": "Bullet",
       "color": "Blue",
       "damage": 5,
+      "healing": 0,
       "movementPattern": {
         "movementPatternType": "linear",
         "xVelocity": 0,
@@ -25,7 +26,7 @@
     }
   },
   "waves": [
-    {
+    /*{
       "waveNumber": 1,
       "waveDuration": 15,
       "entityGroups": [
@@ -52,6 +53,7 @@
               "textureName": "Bullet",
               "color": "Green",
               "damage": 5,
+              "healing": 0,
               "movementPattern": {
                 "movementPatternType": "linear",
                 "xVelocity": 0,
@@ -62,9 +64,51 @@
           }
         }
       ]
-    },
+    },*/
+
     {
       "waveNumber": 2,
+      "waveDuration": 5,
+      "entityGroups": [
+        {
+          "entityAmount": 1,
+          "entityProperties": {
+            "entityType": "lifePiecer",
+            "textureName": "lifePiecer",
+            "color": "White",
+            "lifeSpan": 3,
+            "movementPattern": {
+              "movementPatternType": "MoveHorizontally",
+              "spawnXPosition": 400,
+              "spawnYPosition": -275,
+              "startXPosition": 150,
+              "startYPosition": 200,
+              "endXPosition": 800,
+              "endYPosition": 50,
+              "speed": 2
+            },
+            "projectile": {
+              "projectileType": "lifePiece",
+              "textureName": "LifePiece",
+              "color": "Red",
+              "damage": 0,
+              "healing": 1,
+              "movementPattern": {
+                "movementPatternType": "linear",
+                "xVelocity": 0,
+                "yVelocity": 1,
+                "startXPosition": 0,
+                "startYPosition": 0,
+                "speed": 3
+              }
+            }
+          }
+        }
+      ]
+    },
+
+    {
+      "waveNumber": 3,
       "waveDuration": 15,
       "entityGroups": [
         {
@@ -92,6 +136,7 @@
               "textureName": "Bullet",
               "color": "Green",
               "damage": 5,
+              "healing": 0,
               "movementPattern": {
                 "movementPatternType": "linear",
                 "xVelocity": 0,
@@ -104,7 +149,7 @@
       ]
     },
     {
-      "waveNumber": 3,
+      "waveNumber": 4,
       "waveDuration": 5,
       "entityGroups": [
         {
@@ -133,6 +178,7 @@
               "textureName": "Bullet",
               "color": "Green",
               "damage": 5,
+              "healing": 0,
               "movementPattern": {
                 "movementPatternType": "linear",
                 "xVelocity": 0,
@@ -145,7 +191,7 @@
       ]
     },
     {
-      "waveNumber": 4,
+      "waveNumber": 5,
       "waveDuration": 4,
       "entityGroups": [
         {
@@ -175,6 +221,7 @@
               "textureName": "Bullet",
               "color": "Red",
               "damage": 5,
+              "healing": 0,
               "bounceTimes": 1,
               "movementPattern": {
                 "movementPatternType": "linear",
@@ -188,7 +235,7 @@
       ]
     },
     {
-      "waveNumber": 5,
+      "waveNumber": 6,
       "waveDuration": 4,
       "entityGroups": [
         {
@@ -217,6 +264,7 @@
               "textureName": "Bullet",
               "color": "Red",
               "damage": 5,
+              "healing": 0,
               "bounceTimes": 1,
               "movementPattern": {
                 "movementPatternType": "linear",
@@ -230,7 +278,7 @@
       ]
     },
     {
-      "waveNumber": 6,
+      "waveNumber": 7,
       "waveDuration": 30,
       "entityGroups": [
         {
@@ -255,6 +303,7 @@
               "textureName": "Bullet",
               "color": "Orange",
               "damage": 5,
+              "healing": 0,
               // "bounceTimes": 1,
               "movementPattern": {
                 "movementPatternType": "linear",
@@ -270,7 +319,7 @@
       ]
     },
     {
-      "waveNumber": 7,
+      "waveNumber": 8,
       "waveDuration": 30,
       "entityGroups": [
         {
@@ -295,6 +344,7 @@
               "textureName": "Bullet",
               "color": "Purple",
               "damage": 5,
+              "healing": 0,
               // "bounceTimes": 1,
               "movementPattern": {
                 "movementPatternType": "linear",

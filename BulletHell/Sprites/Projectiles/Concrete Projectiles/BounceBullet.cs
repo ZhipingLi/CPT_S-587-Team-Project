@@ -9,8 +9,8 @@
         private int bounceCount = 0;
         private int numberOfTimesToBounce;
 
-        public BounceBullet(Texture2D texture, Color color, MovementPattern movement, int timesToBounce, int damage)
-            : base(texture, color, movement, damage)
+        public BounceBullet(Texture2D texture, Color color, MovementPattern movement, int timesToBounce, int damage, int healing)
+            : base(texture, color, movement, damage, healing)
         {
             this.numberOfTimesToBounce = timesToBounce;
         }
