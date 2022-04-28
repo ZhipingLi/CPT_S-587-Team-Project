@@ -70,6 +70,11 @@
                 if (sprite is Projectile projectile && projectile.Parent != this)
                 {
                     this.IsRemoved = true;
+                    if (projectile.Texture.Name == "LifePiece")
+                    {
+                        this.IsRemoved = false;
+                        this.AddLive = true;
+                    }
                 }
                 else if (sprite is Enemy)
                 {
@@ -93,6 +98,7 @@
         {
             ((PlayerInput)this.Movement).Respawn();
             this.IsRemoved = false;
+            this.AddLive = false;
             this.spawning = true;
             this.Invincible = true;
             this.initialSpawnTime = gameTime.TotalGameTime.TotalSeconds;
@@ -103,7 +109,7 @@
             if (this.spawning == true)
             {
                 // palyer health is 10
-                if ((gameTime.TotalGameTime.TotalSeconds - this.initialSpawnTime) >= 10) 
+                if ((gameTime.TotalGameTime.TotalSeconds - this.initialSpawnTime) >= 5)
                 {
                     this.Invincible = false;
                     this.spawning = false;

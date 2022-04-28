@@ -103,6 +103,7 @@
 
         public override void PostUpdate(GameTime gameTime)
         {
+            this.AddLife();
             this.RemoveSprites(gameTime);
         }
 
@@ -138,11 +139,16 @@
                 this.commandQueue.Clear();
             }
         }
-        private void addLife()
+
+        private void AddLife()
         {
-            
-            this.lives++;
+            if (this.player.AddLive)
+            {
+                this.lives++;
+            }
+            this.player.AddLive = false;
         }
+
         private void RemoveSprites(GameTime gameTime)
         {
             if (this.player.IsRemoved)

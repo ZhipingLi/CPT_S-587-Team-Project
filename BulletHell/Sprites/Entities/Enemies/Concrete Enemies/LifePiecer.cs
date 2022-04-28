@@ -5,14 +5,16 @@
     using BulletHellShootingGame.Sprites.Projectiles;
     using Microsoft.Xna.Framework;
     using Microsoft.Xna.Framework.Graphics;
+    using BulletHellShootingGame.Sprites.The_Player;
 
     internal class LifePiecer : Enemy
     {
         private float timer1;
-
+        private Player player;
         public LifePiecer(Texture2D texture, Color color, MovementPattern movement, Projectile projectile, int lifeSpan)
             : base(texture, color, movement, projectile, lifeSpan)
         {
+            /*this.player.AddLive = true;*/
         }
 
         public override void Update(GameTime gameTime, List<Sprite> sprites)
