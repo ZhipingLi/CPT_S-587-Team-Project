@@ -23,7 +23,7 @@
         private double timeUntilNextWave = 0;
         private SpriteFont font;
         private int lives = 10;
-        private bool finalBossDefeated = false;
+        private int finalBossDefeated = 0;
         private List<ICommand> commandQueue = null;
 
         public GameState()
@@ -91,7 +91,7 @@
             this.CreateCommands(gameTime); // Create fresh command queue
             this.ExecuteCommands(); // Update sprites, check for collisions, clear queue
 
-            if (this.lives == 0 || this.finalBossDefeated)
+            if (this.lives == 0 || this.finalBossDefeated == 2)
             {
                 this.EndGamePrompt();
             }
@@ -164,7 +164,7 @@
                 {
                     if (this.enemies[i] is FinalBoss)
                     {
-                        this.finalBossDefeated = true;
+                        this.finalBossDefeated += 1;
                         this.enemies.RemoveAt(i);
                     }
                     else
@@ -251,7 +251,7 @@
             {
                 StateManager.ChangeState(new GameOverLose());
             }
-            else if (this.finalBossDefeated == true)
+            else if (this.finalBossDefeated == 2)
             {
                 StateManager.ChangeState(new GameOverWin());
             }

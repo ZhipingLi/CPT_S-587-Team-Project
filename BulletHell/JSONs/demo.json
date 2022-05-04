@@ -426,12 +426,15 @@
               "healing": 0,
               // "bounceTimes": 1,
               "movementPattern": {
-                "movementPatternType": "linear",
+                "movementPatternType": "semicircle",
                 "xVelocity": 0,
-                "yVelocity": 1,
+                "yVelocity": 3,
                 "startXPosition": 0,
                 "startYPosition": 0,
-                "speed": 4
+                "endXPosition": 500,
+                "endYPosition": 300,
+                "half1Or2": true,
+                "speed": 3
               }
             }
           }
@@ -500,19 +503,62 @@
               "speed": 5
             },
             "projectile": {
-              "projectileType": "bullet",
+              "projectileType": "bounceBullet",
               "textureName": "Bullet",
               "color": "Purple",
               "damage": 5,
               "healing": 0,
-              // "bounceTimes": 1,
+              "bounceTimes": 4,
               "movementPattern": {
-                "movementPatternType": "linear",
+                "movementPatternType": "bounce",
                 "xVelocity": 0,
-                "yVelocity": 1,
+                "yVelocity": 2,
                 "startXPosition": 0,
                 "startYPosition": 0,
-                "speed": 4
+                "speed": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "waveNumber": 13,
+      "waveDuration": 30,
+      "entityGroups": [
+        {
+          "entityAmount": 1,
+          "entityProperties": {
+            "entityType": "finalBoss",
+            "textureName": "finalBoss",
+            "color": "White",
+            "lifeSpan": 30,
+            "movementPattern": {
+              "movementPatternType": "MoveHorizontally",
+              "spawnXPosition": 400,
+              "spawnYPosition": -275,
+              "startXPosition": 0,
+              "startYPosition": 50,
+              "endXPosition": 800,
+              "endYPosition": 50,
+              "speed": 5
+            },
+            "projectile": {
+              "projectileType": "bullet",
+              "textureName": "Bullet",
+              "color": "Black",
+              "damage": 5,
+              "healing": 0,
+              "movementPattern": {
+                "movementPatternType": "semicircle",
+                "xVelocity": -3,
+                "yVelocity": 5,
+                "startXPosition": 0,
+                "startYPosition": 0,
+                "endXPosition": 400,
+                "endYPosition": 320,
+                "half1Or2": true,
+                "speed": 2
               }
             }
           }
